@@ -957,7 +957,8 @@ class GP_Nested_Forms extends GP_Plugin {
 
 	public function delete_child_entries_on_save_and_continue( $form ) {
 		if ( rgpost( 'gform_save' ) ) {
-			$session = new GPNF_Session( $form );
+			$form_id = $form['fields'][0]->id;
+			$session = new GPNF_Session( $form_id );
 			$session->delete_cookie();
 		}
 	}
